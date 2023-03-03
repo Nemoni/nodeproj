@@ -1,5 +1,4 @@
-# nodeproj
-node project for practicing
+# node project for practicing
 
 当用vuejs连接nodejs的时候要注意：
 1. 解决跨域访问问题。
