@@ -1,16 +1,19 @@
-var express = require('express');
-var app = express();
+const express = require("express");
+const cors = require('cors');
+const app = express();
 
-app.get('/', function (req, res) {
-       res.send('Hello World');
-    console.log("respond hello world");
-})
+// 设置允许跨域访问的源
+app.use(
+  cors({
+    origin: "http://192.168.1.121:8080",
+  })
+);
 
-var server = app.listen(8081, function () {
+app.get("/api/message", (req, res) => {
+  res.send("Hello, World!");
+  console.log("received /api/message");
+});
 
-      var host = server.address().address
-      var port = server.address().port
-
-      console.log("应用实例，访问地址为 http://%s:%s", host, port)
-
-})
+app.listen(3000, () => {
+  console.log("Server is running at http://localhost:3000");
+});
